@@ -1,0 +1,28 @@
+{
+  "_note": "Official MCC 'Final Result' PDFs for AIQ/Deemed/Central PG (MD/MS/Diploma/DNB) counselling. Listed at https://mcc.nic.in/archive-pg/ and https://mcc.nic.in/pg-medical-counselling/. Provisional results and notices are intentionally excluded.",
+  "base": "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/",
+  "sources": [
+    {"year": 2021, "round": "Round 1",        "path": "2022/08/2022081157.pdf",          "title": "FINAL COUNSELLING RESULT PG 2021 ROUND 1"},
+    {"year": 2021, "round": "Round 2",        "path": "2022/08/2022081124.pdf",          "title": "Final Allotment Result Round 2 PG 2021"},
+    {"year": 2021, "round": "Mop-Up",         "path": "2022/08/2022081115.pdf",          "title": "FINAL RESULT OF PG 2021 MOP UP ROUND"},
+    {"year": 2021, "round": "Stray Vacancy",  "path": "2022/08/2022081160.pdf",          "title": "Final Result Stray Vacancy Round PG 2021"},
+    {"year": 2022, "round": "Round 1",        "path": "2023/06/2023060647.pdf",          "title": "FINAL RESULT FOR ROUND-1 MD MS PG 2022"},
+    {"year": 2022, "round": "Round 2",        "path": "2023/06/2023060675.pdf",          "title": "FINAL RESULT FOR ROUND-2 MD MS PG 2022"},
+    {"year": 2022, "round": "Mop-Up",         "path": "2023/06/2023060699.pdf",          "title": "FINAL RESULT PG 2022 MOP UP ROUND MD MS DNB"},
+    {"year": 2022, "round": "Stray Vacancy",  "path": "2023/06/2023060633.pdf",          "title": "FINAL RESULT OF PG 2022 STRAY VACANCY ROUND"},
+    {"year": 2023, "round": "Round 1",        "path": "2023/08/2023080855.pdf",          "title": "FINAL RESULT ROUND 1 PG 2023 (MD/MS/DIPLOMA AND DNB)"},
+    {"year": 2023, "round": "Round 2",        "path": "2023/08/2023083188.pdf",          "title": "FINAL RESULT ROUND 2 PG 2023 (MD/MS/DIPLOMA AND DNB)"},
+    {"year": 2023, "round": "Round 3",        "path": "2023/09/2023092816.pdf",          "title": "FINAL RESULT ROUND 3 PG 2023 (MD/MS/DIPLOMA/DNB)"},
+    {"year": 2023, "round": "Stray Vacancy",  "path": "2023/10/2023101632-1.pdf",        "title": "FINAL ALLOTMENT RESULT STRAY ROUND PG COUNSELLING 2023"},
+    {"year": 2023, "round": "Special Stray",  "path": "2023/11/2023112564.pdf",          "title": "Final Allotment Result Special Stray Round PG Counselling"},
+    {"year": 2024, "round": "Round 1",        "path": "2024/11/2024112085.pdf",          "title": "Final Allotment Result Round 1 of PG Counselling 2024"},
+    {"year": 2024, "round": "Round 2",        "path": "2024/12/2024121477.pdf",          "title": "Final Result for Round 2 of PG Counselling 2024"},
+    {"year": 2024, "round": "Round 3",        "path": "2025/01/2025012533.pdf",          "title": "Final Allotment Result for Round 3 of PG Counselling 2024"},
+    {"year": 2024, "round": "Stray Vacancy",  "path": "2025/02/2025021923.pdf",          "title": "FINAL RESULT OF STRAY VACANCY ROUND NEET PG 2024"},
+    {"year": 2024, "round": "Special Stray",  "path": "2025/03/2025031272.pdf",          "title": "Final Result for Special Stray Vacancy Round PG 2024"},
+    {"year": 2025, "round": "Round 1",        "path": "2025/11/202511221303622410.pdf",  "title": "Final Result of Round 1 for PG Counselling 2025"},
+    {"year": 2025, "round": "Round 2",        "path": "2025/12/202512172132273940.pdf",  "title": "Final Result for Round 2 of PG counselling 2025"},
+    {"year": 2025, "round": "Round 3",        "path": "2026/02/20260206892439077.pdf",   "title": "Final Result for Round-III of NEET PG Counselling 2025"},
+    {"year": 2025, "round": "Stray Vacancy",  "path": "2026/02/20260223177387794.pdf",   "title": "Final Result for Stray Round of PG counselling 2025"}
+  ]
+}

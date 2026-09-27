@@ -1,0 +1,41 @@
+raw rows: 393867
+allotments kept: 262760
+institutes: 1982 (from 12363 raw spellings)
+courses: 98 (from 391 raw spellings)
+closing-rank groups: 171195
+
+  2021 Round 1        raw  18218  allotments  18218
+  2021 Round 2        raw  23821  allotments  13041
+  2021 Mop-Up         raw   5863  allotments   5863
+  2021 Stray Vacancy  raw   1117  allotments   1117
+  2022 Round 1        raw  20982  allotments  20982
+  2022 Round 2        raw  26217  allotments  14551
+  2022 Mop-Up         raw   8606  allotments   8606
+  2022 Stray Vacancy  raw   2035  allotments   2035
+  2023 Round 1        raw  22506  allotments  22506
+  2023 Round 2        raw  28279  allotments  15184
+  2023 Round 3        raw  30566  allotments  10157
+  2023 Stray Vacancy  raw   2858  allotments   2858
+  2023 Special Stray  raw    762  allotments    762
+  2024 Round 1        raw  24671  allotments  24671
+  2024 Round 2        raw  31490  allotments  16182
+  2024 Round 3        raw  36583  allotments  13991
+  2024 Stray Vacancy  raw   2331  allotments   2331
+  2024 Special Stray  raw    558  allotments    558
+  2025 Round 1        raw  26889  allotments  26889
+  2025 Round 2        raw  35023  allotments  20787
+  2025 Round 3        raw  41694  allotments  18673
+  2025 Stray Vacancy  raw   2798  allotments   2798
+
+[no seat in this round (by remark)]
+    37579  No Upgradation
+    36569  Not Allotted.
+    30885  Did not fill up fresh choices.
+    15948  Did not opt for Upgradation.
+     6651  No Upgradati on
+     3475  Did not opt for Upgradati on.
+
+[institutes]
+      954  PIN-less name attached to a unique full entry
+      183  PIN-less name, ambiguous or unmatched (kept as its own institute)
+       19  same name+city+state under a second PIN (merged)

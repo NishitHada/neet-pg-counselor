@@ -20,18 +20,18 @@
 
 <div class="disclaimer-banner">
   ⚠️ <strong>This is an educational tool, not an official source.</strong>
-  The Rank Predictor uses illustrative sample data to show how counseling patterns typically look —
-  it is <u>not</u> real MCC or state counseling cutoff data. Always cross-check ranks, seat matrices,
-  and rules on the official MCC (mcc.nic.in) and your state counseling authority's website before
-  making any decision.
+  Cutoffs here are extracted from MCC's published Final Result PDFs (AIQ, Deemed, Central
+  University and DNB seats, 2021–2025). Extraction is automated and past closing ranks don't
+  guarantee future ones. Before you decide anything, verify against <a href="https://mcc.nic.in">mcc.nic.in</a>
+  and your state counseling authority. State-quota counseling isn't included yet.
 </div>
 
 <nav class="tabs" id="tabs">
   <button class="tab-btn active" data-tab="guide">📖 Guide &amp; Timeline</button>
   <button class="tab-btn" data-tab="predictor">🎯 Rank Predictor</button>
+  <button class="tab-btn" data-tab="explorer">🔎 Cutoff Explorer</button>
   <button class="tab-btn" data-tab="calculator">🧮 Reservation Calculator</button>
   <button class="tab-btn" data-tab="chatbot">💬 Ask the Counselor</button>
-  <button class="tab-btn" data-tab="feedback">📈 Feedback &amp; Calibration</button>
 </nav>
 
 <main>
@@ -110,65 +110,66 @@
   </section>
 
   <!-- PREDICTOR TAB -->
-  <section id="predictor" class="tab-panel">
-    <h2>Rank Predictor <span class="badge">Sample Data</span></h2>
+  <section id="predictor" class="tab-panel wide">
+    <h2>Rank Predictor <span class="badge real">Real MCC data</span></h2>
     <p class="section-intro">
-      Enter your details to see the <em>kind</em> of colleges/courses that have historically closed
-      near your rank. This starts from a small synthetic baseline (government clinical seats closing
-      at lower ranks, diploma/deemed seats at higher ranks) and then <strong>adjusts itself</strong>
-      using real "actual result" reports submitted on the Feedback tab — it does not reflect real
-      named institutions, and predictions are only as good as the feedback behind them.
+      Shows every seat (institute + course + quota) where, in the selected year, a candidate with a
+      rank <em>worse</em> than yours was allotted in some round, based on <span id="data-stats"></span>.
+      You're matched against <strong>Open</strong> seats plus your own category's reserved seats,
+      and PwD seats if you're PwD. Each round column is that round's closing rank, the last rank
+      allotted there. Green means your rank was within it.
     </p>
-    <p class="section-intro" id="calibration-status"></p>
 
     <form id="predictor-form" class="form-grid">
-      <label>
-        Your NEET PG Rank
+      <label>Your NEET PG All-India Rank
         <input type="number" id="p-rank" min="1" placeholder="e.g. 8500" required>
       </label>
-
-      <label>
-        Category
+      <label>Category
         <select id="p-category">
-          <option value="UR">UR / General</option>
-          <option value="EWS">EWS</option>
-          <option value="OBC-NCL">OBC-NCL</option>
-          <option value="SC">SC</option>
-          <option value="ST">ST</option>
+          <option value="0">UR / General</option>
+          <option value="1">EWS</option>
+          <option value="2">OBC-NCL</option>
+          <option value="3">SC</option>
+          <option value="4">ST</option>
         </select>
       </label>
-
-      <label>
-        PwD Candidate?
-        <select id="p-pwd">
-          <option value="no">No</option>
-          <option value="yes">Yes</option>
-        </select>
+      <label>PwD Candidate?
+        <select id="p-pwd"><option value="no">No</option><option value="yes">Yes</option></select>
       </label>
-
-      <label>
-        Quota
-        <select id="p-quota">
-          <option value="All">Both AIQ &amp; State Quota</option>
-          <option value="AIQ">All India Quota (AIQ)</option>
-          <option value="State Quota">State Quota</option>
-        </select>
-      </label>
-
-      <label>
-        Course Type
-        <select id="p-coursetype">
-          <option value="All">All</option>
-          <option value="Clinical">Clinical (MD/MS)</option>
-          <option value="Para-clinical/Pre-clinical">Para-clinical / Pre-clinical</option>
-          <option value="Diploma">Diploma</option>
-        </select>
-      </label>
-
-      <button type="submit" class="primary-btn">Predict</button>
+      <label>Quota <select id="p-quota"></select></label>
+      <label>Program <select id="p-program"></select></label>
+      <label>Specialty <select id="p-specialty"></select></label>
+      <label>State <select id="p-state"></select></label>
+      <label>Counseling year <select id="p-year"></select></label>
+      <button type="submit" class="primary-btn">Find seats</button>
     </form>
 
     <div id="predictor-results"></div>
+  </section>
+
+  <!-- EXPLORER TAB -->
+  <section id="explorer" class="tab-panel wide">
+    <h2>Cutoff Explorer</h2>
+    <p class="section-intro">
+      Query the full closing-rank table. Each row is one year, round, institute, course, quota,
+      category and PwD combination. The whole normalized database (every individual allotment) is also
+      available as SQLite: <a href="data/neet_pg.sqlite" download>data/neet_pg.sqlite</a>.
+    </p>
+    <form id="explorer-form" class="form-grid">
+      <label>Institute / city contains <input type="text" id="x-text" placeholder="e.g. Maulana Azad, Jaipur"></label>
+      <label>State <select id="x-state"></select></label>
+      <label>Program <select id="x-program"></select></label>
+      <label>Specialty <select id="x-specialty"></select></label>
+      <label>Quota <select id="x-quota"></select></label>
+      <label>Seat category <select id="x-category"></select></label>
+      <label>PwD seats
+        <select id="x-pwd"><option value="">Any</option><option value="0">Non-PwD</option><option value="1">PwD only</option></select>
+      </label>
+      <label>Year <select id="x-year"></select></label>
+      <label>Round <select id="x-round"></select></label>
+      <button type="submit" class="primary-btn">Search</button>
+    </form>
+    <div id="explorer-results"></div>
   </section>
 
   <!-- CALCULATOR TAB -->
@@ -243,109 +244,6 @@
     </form>
   </section>
 
-  <!-- FEEDBACK TAB -->
-  <section id="feedback" class="tab-panel">
-    <h2>Feedback &amp; Self-Improvement</h2>
-    <p class="section-intro">
-      The Rank Predictor starts from a synthetic baseline and recalibrates itself using real
-      "actual result" reports — but only two ways, both honest about their limits:
-    </p>
-    <div class="card">
-      <h3>How this actually works</h3>
-      <ul>
-        <li><strong>On this device, immediately:</strong> every report you log below is saved in
-        this browser's local storage and blended into predictions the moment you submit it.</li>
-        <li><strong>Across everyone, over time:</strong> there is no live server, so other users'
-        reports don't reach you automatically. Use "Export my feedback" below and share the file
-        with the maintainer — merged reports get bundled into <code>calibration-data.js</code> in a
-        future update, so the shipped baseline itself improves release over release.</li>
-      </ul>
-      <p class="note">Nothing is uploaded automatically. All data stays in your browser until you
-      choose to export it.</p>
-    </div>
-
-    <div class="card">
-      <h3>Log an Actual Result</h3>
-      <form id="feedback-form" class="form-grid">
-        <label>
-          Your NEET PG Rank
-          <input type="number" id="f-rank" min="1" required>
-        </label>
-        <label>
-          Category
-          <select id="f-category">
-            <option value="UR">UR / General</option>
-            <option value="EWS">EWS</option>
-            <option value="OBC-NCL">OBC-NCL</option>
-            <option value="SC">SC</option>
-            <option value="ST">ST</option>
-          </select>
-        </label>
-        <label>
-          PwD Candidate?
-          <select id="f-pwd">
-            <option value="no">No</option>
-            <option value="yes">Yes</option>
-          </select>
-        </label>
-        <label>
-          Quota
-          <select id="f-quota">
-            <option value="AIQ">All India Quota (AIQ)</option>
-            <option value="State Quota">State Quota</option>
-          </select>
-        </label>
-        <label>
-          College Tier
-          <select id="f-tier">
-            <option value="Government">Government</option>
-            <option value="Government (Central)">Government (Central)</option>
-            <option value="Deemed/Private">Deemed/Private</option>
-            <option value="Private">Private</option>
-          </select>
-        </label>
-        <label>
-          Course Type
-          <select id="f-coursetype">
-            <option value="Clinical">Clinical (MD/MS)</option>
-            <option value="Para-clinical/Pre-clinical">Para-clinical / Pre-clinical</option>
-            <option value="Diploma">Diploma</option>
-          </select>
-        </label>
-        <label>
-          Round
-          <select id="f-round">
-            <option value="Round 1">Round 1</option>
-            <option value="Round 2">Round 2</option>
-            <option value="Mop-Up">Mop-Up</option>
-            <option value="Stray Vacancy">Stray Vacancy</option>
-          </select>
-        </label>
-        <label>
-          Outcome
-          <select id="f-outcome">
-            <option value="got_seat">Got a seat at/near this rank</option>
-            <option value="did_not_get">Did not get a seat at this rank</option>
-          </select>
-        </label>
-        <button type="submit" class="primary-btn">Submit Report</button>
-      </form>
-    </div>
-
-    <div id="feedback-stats" class="card"></div>
-
-    <div class="card">
-      <h3>Manage Your Data</h3>
-      <div class="chip-row">
-        <button type="button" id="export-feedback" class="chip">⬇️ Export my feedback (JSON)</button>
-        <button type="button" id="import-feedback" class="chip">⬆️ Import feedback file</button>
-        <button type="button" id="clear-feedback" class="chip">🗑️ Clear local feedback</button>
-      </div>
-      <input type="file" id="import-file-input" accept="application/json" style="display:none">
-    </div>
-
-    <div id="feedback-log" class="card"></div>
-  </section>
 
 </main>
 
@@ -355,7 +253,7 @@
   official sources before making counseling decisions.</p>
 </footer>
 
-<script src="calibration-data.js"></script>
+<script src="data/cutoffs.js"></script>
 <script src="data.js"></script>
 <script src="app.js"></script>
 </body>

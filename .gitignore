@@ -1,0 +1,4 @@
+pipeline/raw/
+.venv/
+__pycache__/
+pipeline/extracted/

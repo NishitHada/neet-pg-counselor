@@ -283,3 +283,16 @@ input:focus, select:focus { outline: 2px solid var(--accent); }
   padding: 20px;
   border-top: 1px solid var(--border);
 }
+
+/* ---------- Predictor / Explorer (real cutoff tables) ---------- */
+main.wide { max-width: 1240px; }
+.badge.real { background: #123a2c; color: var(--good); border-color: #1f7a55; }
+.disclaimer-banner a, .section-intro a, .result-table a { color: var(--accent); }
+.dim { color: var(--text-dim); font-size: 0.8rem; font-weight: normal; }
+.table-scroll { overflow-x: auto; border-radius: var(--radius); }
+.result-table th.num, .result-table td.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.result-table td.ok { color: var(--good); font-weight: 600; }
+.result-table td.miss { color: var(--text-dim); }
+.result-summary { color: var(--text-dim); }
+.result-summary .chip { margin-left: 8px; }
+.more-btn { margin: 12px auto 0; display: block; }
