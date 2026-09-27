@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEET PG Counselor — Free Counseling Guide &amp; Predictor</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="brand">
+    <span class="brand-icon">🩺</span>
+    <div>
+      <h1>NEET PG Counselor</h1>
+      <p class="tagline">A free, offline guide to help you understand NEET PG counseling</p>
+    </div>
+  </div>
+</header>
+
+<div class="disclaimer-banner">
+  ⚠️ <strong>This is an educational tool, not an official source.</strong>
+  The Rank Predictor uses illustrative sample data to show how counseling patterns typically look —
+  it is <u>not</u> real MCC or state counseling cutoff data. Always cross-check ranks, seat matrices,
+  and rules on the official MCC (mcc.nic.in) and your state counseling authority's website before
+  making any decision.
+</div>
+
+<nav class="tabs" id="tabs">
+  <button class="tab-btn active" data-tab="guide">📖 Guide &amp; Timeline</button>
+  <button class="tab-btn" data-tab="predictor">🎯 Rank Predictor</button>
+  <button class="tab-btn" data-tab="calculator">🧮 Reservation Calculator</button>
+  <button class="tab-btn" data-tab="chatbot">💬 Ask the Counselor</button>
+  <button class="tab-btn" data-tab="feedback">📈 Feedback &amp; Calibration</button>
+</nav>
+
+<main>
+
+  <!-- GUIDE TAB -->
+  <section id="guide" class="tab-panel active">
+    <h2>How NEET PG Counseling Works</h2>
+
+    <div class="card">
+      <h3>1. The Two Quota System</h3>
+      <p><strong>All India Quota (AIQ) — 50% of government seats:</strong> Conducted by the Medical
+      Counseling Committee (MCC) for all MD/MS/Diploma seats surrendered to the central pool by
+      states, plus all seats in central institutes and deemed/private universities.</p>
+      <p><strong>State Quota — remaining 50% of government seats + state private seats:</strong>
+      Conducted separately by each state's counseling authority (e.g. DGHS/DME of that state), with
+      its own rules, reservation categories, and domicile requirements.</p>
+      <p class="note">You can register for both AIQ and your home state's counseling at the same time
+      — they run on independent, overlapping timelines.</p>
+    </div>
+
+    <div class="card">
+      <h3>2. Typical Round Structure</h3>
+      <ol class="round-list">
+        <li><strong>Round 1</strong> — First allotment based on choices, rank, and category. You must
+        report and either join or exercise "float"/upgrade options as per that year's rules.</li>
+        <li><strong>Round 2</strong> — Candidates already allotted a seat can try to upgrade; new
+        candidates can enter with fresh choices against vacant seats.</li>
+        <li><strong>Mop-Up Round</strong> — For remaining vacancies after Round 2; typically the last
+        MCC-conducted round for many quotas.</li>
+        <li><strong>Stray Vacancy Round</strong> — Fills seats still vacant after Mop-Up, sometimes
+        conducted on-the-spot or with compressed timelines. Rules on withdrawal/joining are usually
+        stricter here.</li>
+      </ol>
+      <p class="note">Exact round names, count, and rules change year to year and differ between AIQ
+      and individual states — always check the current year's official information bulletin.</p>
+    </div>
+
+    <div class="card">
+      <h3>3. Choice Filling &amp; Locking</h3>
+      <ul>
+        <li>List colleges/courses in genuine order of preference — allotment is rank + choice driven,
+        so listing a seat doesn't force you to take it if you rank higher on a preferred choice.</li>
+        <li>Some rounds require you to explicitly "lock" your choices before a deadline — an unlocked
+        list may be auto-locked by the system or may not be considered, depending on that year's rule.</li>
+        <li>Research course + college together — a "good college, weak department" or vice versa can
+        matter more than brand name for your specialty.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>4. Reporting &amp; Joining</h3>
+      <ul>
+        <li>After allotment, you typically report to the allotted college (or do online reporting,
+        depending on quota/state) within a fixed window, with fee payment and document verification.</li>
+        <li>Failing to report/join without valid upgradation intent can lead to seat forfeiture and,
+        in many states, a period of debarment from future counseling — check current penalty rules.</li>
+        <li>If you intend to try for an upgrade in a later round, you generally must still join and
+        pay initial dues for your current allotment to keep that seat safe while you wait.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>5. Documents Usually Required</h3>
+      <ul class="doc-checklist">
+        <li>NEET PG admit card &amp; rank letter</li>
+        <li>MBBS/BDS degree certificate &amp; mark sheets</li>
+        <li>Internship completion certificate (or expected date proof)</li>
+        <li>Permanent/provisional medical registration certificate</li>
+        <li>Category certificate (OBC-NCL / SC / ST / EWS / PwD) valid for the counseling year</li>
+        <li>Domicile certificate (for state quota)</li>
+        <li>Valid photo ID, passport-size photographs, counseling fee receipt</li>
+      </ul>
+      <p class="note">Requirements vary by state and quota — always follow the exact checklist in that
+      year's information bulletin.</p>
+    </div>
+  </section>
+
+  <!-- PREDICTOR TAB -->
+  <section id="predictor" class="tab-panel">
+    <h2>Rank Predictor <span class="badge">Sample Data</span></h2>
+    <p class="section-intro">
+      Enter your details to see the <em>kind</em> of colleges/courses that have historically closed
+      near your rank. This starts from a small synthetic baseline (government clinical seats closing
+      at lower ranks, diploma/deemed seats at higher ranks) and then <strong>adjusts itself</strong>
+      using real "actual result" reports submitted on the Feedback tab — it does not reflect real
+      named institutions, and predictions are only as good as the feedback behind them.
+    </p>
+    <p class="section-intro" id="calibration-status"></p>
+
+    <form id="predictor-form" class="form-grid">
+      <label>
+        Your NEET PG Rank
+        <input type="number" id="p-rank" min="1" placeholder="e.g. 8500" required>
+      </label>
+
+      <label>
+        Category
+        <select id="p-category">
+          <option value="UR">UR / General</option>
+          <option value="EWS">EWS</option>
+          <option value="OBC-NCL">OBC-NCL</option>
+          <option value="SC">SC</option>
+          <option value="ST">ST</option>
+        </select>
+      </label>
+
+      <label>
+        PwD Candidate?
+        <select id="p-pwd">
+          <option value="no">No</option>
+          <option value="yes">Yes</option>
+        </select>
+      </label>
+
+      <label>
+        Quota
+        <select id="p-quota">
+          <option value="All">Both AIQ &amp; State Quota</option>
+          <option value="AIQ">All India Quota (AIQ)</option>
+          <option value="State Quota">State Quota</option>
+        </select>
+      </label>
+
+      <label>
+        Course Type
+        <select id="p-coursetype">
+          <option value="All">All</option>
+          <option value="Clinical">Clinical (MD/MS)</option>
+          <option value="Para-clinical/Pre-clinical">Para-clinical / Pre-clinical</option>
+          <option value="Diploma">Diploma</option>
+        </select>
+      </label>
+
+      <button type="submit" class="primary-btn">Predict</button>
+    </form>
+
+    <div id="predictor-results"></div>
+  </section>
+
+  <!-- CALCULATOR TAB -->
+  <section id="calculator" class="tab-panel">
+    <h2>Reservation &amp; Eligibility Calculator</h2>
+    <p class="section-intro">
+      Get a plain-language readout of the reservation rules that typically apply to you under
+      <strong>All India Quota</strong>. AIQ reservation percentages are fixed by Government of India
+      policy; state quota reservation varies by state, so treat those figures as illustrative only.
+    </p>
+
+    <form id="calc-form" class="form-grid">
+      <label>
+        Category
+        <select id="c-category">
+          <option value="UR">UR / General</option>
+          <option value="EWS">EWS</option>
+          <option value="OBC-NCL">OBC-NCL</option>
+          <option value="SC">SC</option>
+          <option value="ST">ST</option>
+        </select>
+      </label>
+
+      <label>
+        Annual Family Income (₹, if claiming EWS)
+        <input type="number" id="c-income" min="0" placeholder="e.g. 700000">
+      </label>
+
+      <label>
+        PwD (≥40% disability)?
+        <select id="c-pwd">
+          <option value="no">No</option>
+          <option value="yes">Yes</option>
+        </select>
+      </label>
+
+      <label>
+        In-Service Candidate (state health dept.)?
+        <select id="c-inservice">
+          <option value="no">No</option>
+          <option value="yes">Yes</option>
+        </select>
+      </label>
+
+      <button type="submit" class="primary-btn">Calculate</button>
+    </form>
+
+    <div id="calc-results"></div>
+  </section>
+
+  <!-- CHATBOT TAB -->
+  <section id="chatbot" class="tab-panel">
+    <h2>Ask the Counselor</h2>
+    <p class="section-intro">
+      A simple offline FAQ assistant — it matches your question against a curated list of common
+      NEET PG counseling questions. It doesn't use the internet or an AI model, so it can only answer
+      what's in its FAQ list below.
+    </p>
+
+    <div id="chat-window" class="chat-window">
+      <div class="chat-msg bot">
+        Hi! Ask me something like "what is stray vacancy round" or "EWS income limit", or click a
+        suggestion below.
+      </div>
+    </div>
+
+    <div id="chat-suggestions" class="chip-row"></div>
+
+    <form id="chat-form" class="chat-input-row">
+      <input type="text" id="chat-input" placeholder="Type your question…" autocomplete="off">
+      <button type="submit" class="primary-btn">Ask</button>
+    </form>
+  </section>
+
+  <!-- FEEDBACK TAB -->
+  <section id="feedback" class="tab-panel">
+    <h2>Feedback &amp; Self-Improvement</h2>
+    <p class="section-intro">
+      The Rank Predictor starts from a synthetic baseline and recalibrates itself using real
+      "actual result" reports — but only two ways, both honest about their limits:
+    </p>
+    <div class="card">
+      <h3>How this actually works</h3>
+      <ul>
+        <li><strong>On this device, immediately:</strong> every report you log below is saved in
+        this browser's local storage and blended into predictions the moment you submit it.</li>
+        <li><strong>Across everyone, over time:</strong> there is no live server, so other users'
+        reports don't reach you automatically. Use "Export my feedback" below and share the file
+        with the maintainer — merged reports get bundled into <code>calibration-data.js</code> in a
+        future update, so the shipped baseline itself improves release over release.</li>
+      </ul>
+      <p class="note">Nothing is uploaded automatically. All data stays in your browser until you
+      choose to export it.</p>
+    </div>
+
+    <div class="card">
+      <h3>Log an Actual Result</h3>
+      <form id="feedback-form" class="form-grid">
+        <label>
+          Your NEET PG Rank
+          <input type="number" id="f-rank" min="1" required>
+        </label>
+        <label>
+          Category
+          <select id="f-category">
+            <option value="UR">UR / General</option>
+            <option value="EWS">EWS</option>
+            <option value="OBC-NCL">OBC-NCL</option>
+            <option value="SC">SC</option>
+            <option value="ST">ST</option>
+          </select>
+        </label>
+        <label>
+          PwD Candidate?
+          <select id="f-pwd">
+            <option value="no">No</option>
+            <option value="yes">Yes</option>
+          </select>
+        </label>
+        <label>
+          Quota
+          <select id="f-quota">
+            <option value="AIQ">All India Quota (AIQ)</option>
+            <option value="State Quota">State Quota</option>
+          </select>
+        </label>
+        <label>
+          College Tier
+          <select id="f-tier">
+            <option value="Government">Government</option>
+            <option value="Government (Central)">Government (Central)</option>
+            <option value="Deemed/Private">Deemed/Private</option>
+            <option value="Private">Private</option>
+          </select>
+        </label>
+        <label>
+          Course Type
+          <select id="f-coursetype">
+            <option value="Clinical">Clinical (MD/MS)</option>
+            <option value="Para-clinical/Pre-clinical">Para-clinical / Pre-clinical</option>
+            <option value="Diploma">Diploma</option>
+          </select>
+        </label>
+        <label>
+          Round
+          <select id="f-round">
+            <option value="Round 1">Round 1</option>
+            <option value="Round 2">Round 2</option>
+            <option value="Mop-Up">Mop-Up</option>
+            <option value="Stray Vacancy">Stray Vacancy</option>
+          </select>
+        </label>
+        <label>
+          Outcome
+          <select id="f-outcome">
+            <option value="got_seat">Got a seat at/near this rank</option>
+            <option value="did_not_get">Did not get a seat at this rank</option>
+          </select>
+        </label>
+        <button type="submit" class="primary-btn">Submit Report</button>
+      </form>
+    </div>
+
+    <div id="feedback-stats" class="card"></div>
+
+    <div class="card">
+      <h3>Manage Your Data</h3>
+      <div class="chip-row">
+        <button type="button" id="export-feedback" class="chip">⬇️ Export my feedback (JSON)</button>
+        <button type="button" id="import-feedback" class="chip">⬆️ Import feedback file</button>
+        <button type="button" id="clear-feedback" class="chip">🗑️ Clear local feedback</button>
+      </div>
+      <input type="file" id="import-file-input" accept="application/json" style="display:none">
+    </div>
+
+    <div id="feedback-log" class="card"></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>Built as a free, offline educational resource. Not affiliated with MCC, NBEMS, or any state
+  counseling authority. Data and content here are for learning purposes only — always verify against
+  official sources before making counseling decisions.</p>
+</footer>
+
+<script src="calibration-data.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
